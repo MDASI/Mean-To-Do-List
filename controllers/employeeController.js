@@ -1,9 +1,16 @@
 const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
+var path=require('path');
 
 var { Employee } = require('../models/employee');
 
+
+
+router.use(express.static(path.join(__dirname,'public')));
+router.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public/index.html'));
+})
 // => localhost:3000/employees/
 router.get('/', (req, res) => {
     Employee.find((err, docs) => {
