@@ -261,7 +261,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var EmployeeService = /** @class */ (function () {
     function EmployeeService(http) {
         this.http = http;
-        this.baseURL = 'employees';
+        this.baseURL = 'api/employees';
     }
     EmployeeService.prototype.postEmployee = function (emp) {
         return this.http.post(this.baseURL, emp);
