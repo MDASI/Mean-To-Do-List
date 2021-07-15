@@ -5,6 +5,13 @@ const port =process.env.PORT || 3000;
 const { mongoose } = require('./db.js');
 var employeeController = require('./controllers/employeeController.js');
 
+var path=require('path');
+
+app.use(express.static(path.loin(__dirname,"public")));
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public/index.html'));
+})
+
 var app = express();
 app.use(bodyParser.json());
 app.use(cors({ origin: 'http://localhost:4200' }));
